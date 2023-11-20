@@ -147,14 +147,11 @@ button{
     font-weight: 600;
 }
 @media only screen and (max-width: 769px){
-    .preview-text-area{
-    }
     .big-header-but-not{
         font-size: 25px;
     }
     .preview-undercaption{
         font-size: 15px;
-        
     }
 }
 .why-us{
@@ -234,11 +231,13 @@ hr{
     .dot .next .prev{
         display: none;
     }
+    .button-for-mobile{
+        display: none;
+    }
 }
 @media only screen and (max-width: 48em){
     .card-why{
         display: flex;
-        flex-direction: column;
         align-items: center;
         margin:0 20px;
         border-radius: 30px;
@@ -247,31 +246,6 @@ hr{
         width: 100%;
         margin: 20px;
         /*min-width: 0;*/
-    }
-    .slider{
-        max-width: 600px;
-        position: relative;
-    }
-    .prev .next{
-        cursor: pointer;
-        position: absolute;
-        top: 50%;
-        width: auto;
-        margin-top: -22px;
-        padding: 16px;
-        color: black;
-        background-color: #3D348B;
-        font-weight: bold;
-        font-size: 18px;
-        transition: 0.6s;
-        border-radius: 0 3px 3px 0;
-    }
-    .next{
-        right: 0;
-        border-radius: 3px 0 0 3px;
-    }
-    .prev:hover .next:hover{
-        background-color: black;
     }
     .dot{
         cursor: pointer;
@@ -286,19 +260,31 @@ hr{
     .active .dot:hover{
         background-color: #717171;
     }
-    .fade{
-        -webkit-animation-name: fade;
-        -webkit-animation-duration: 1.5s;
-        animation-name: fade;
-        animation-duration: 1.5s;
+    .button-for-mobile{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 0 20px;
     }
-    @-webkit-keyframes fade{
-        from{opacity: .4}
-        to{opacity: 1}
+    #slider-container {
+        margin: auto;
+        overflow :hidden;
     }
-    @keyframes fade{
-        from{opacity: .4}
-        to{opacity: 1}
+    #slides {
+        width:80%;
+        display: flex;
+        overflow:visible;
+        transition: transform 0.5s ease-in-out;
+    }
+    .slide {
+        width:80%;
+        margin: 0 auto;
+        min-width: 100%;
+        box-sizing: border-box;
+    }
+    #next #prev {
+        right: 0;
+        border-radius: 3px;
     }
 }
 h2 .head-name{

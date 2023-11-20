@@ -1,47 +1,44 @@
-//document.addEventListener('DOMContentLoaded', function() {
-//    let elems = document.querySelectorAll('.corousel');
-//    let instances = M.Carousel.init(elems, {
-//        fullWidth: true,
-//        indicators: true
-//    });
-//})
 
+let currentSlide = 0;
+let touchStartX = 0;
+let touchEndX = 0;
 
-//$(document)(function(){
-//    $('.slider').slick();
-//});
-
-if (window.innerWidth < 768){
-var slideIndex = 1;
-showSlides(slideIndex);
-
-function plusSlides(n) {
-    showSlides(slideIndex += n);
+function showSlide(index) {
+    const slides = document.getElementById('slides');
+    const slideWidth = document.querySelector('.slide').offsetWidth;
+    slides.style.transform = `translateX(${-index * slideWidth}px)`;
+    currentSlide = index;
 }
 
-function currentSlide(n) {
-    showSlides(slideIndex = n);
+function nextSlide() {
+    const totalSlides = document.querySelectorAll('.slide').length;
+    currentSlide = (currentSlide + 1) % totalSlides;
+    showSlide(currentSlide);
 }
 
-function showSlides(n) {
-    var i;
-    var slides = document.getElementsByClassName("slider__item");
-    var dots = document.getElementsByClassName("dot");
-
-    if (n > slides.lenght) {
-        slideIndex = 1
-    }
-    if (n < 1) {
-        slideIndex=slides.length
-    }
-    for (i=0; i<slides.length; i++){
-        slides[i].style.display= "none";
-
-    }
-    for (i=0; i<dots.length;i++){
-        dots[i].className= dots[i].className.replace("active","");
-    }
-    slides[slideIndex-1].style.display="block";
-    dots[slideIndex-1].className+= "active";
+function prevSlide() {
+    const totalSlides = document.querySelectorAll('.slide').length;
+    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+    showSlide(currentSlide);
 }
+
+// Добавляем обработчики событий для касания
+document.getElementById('slider-container').addEventListener('touchstart', handleTouchStart);
+document.getElementById('slider-container').addEventListener('touchend', handleTouchEnd);
+
+function handleTouchStart(event) {
+    touchStartX = event.touches[0].clientX;
+}
+
+function handleTouchEnd(event) {
+    touchEndX = event.changedTouches[0].clientX;
+    handleGesture();
+}
+
+function handleGesture() {
+    if (touchEndX < touchStartX) {
+        nextSlide();
+    } else if (touchEndX > touchStartX) {
+        prevSlide();
+    }
 }

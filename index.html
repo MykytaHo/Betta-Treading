@@ -40,30 +40,35 @@
                 <h2>Why choose us</h2>
                 <p class="par-why-us">We have been  voted as the insurance company with the best customer service and most affordable policy</p>
             </div>
-            <div class="card-why slider ">
-                <script src="js/slider.js"></script>
-                <div class="card-why-box slider__item fade">
+            <div id="slider-container">
+            <div class="card-why" id="slides">
+                <div class="card-why-box slide">
                     <p class="advantage "><img  class="icon-advantage" src="img/Delivery.svg" alt=""><span class="name-advantage">Delivery speed</span></p>
                     <hr>
                     <p class="discription-advantage">Delivery within 2 weeks to anywhere in the world. By water and land transport</p>
                 </div>
-                <div class="card-why-box slider__item fade">
+                <div class="card-why-box slide">
                     <p class="advantage"><img  class="icon-advantage" src="img/Setting.svg" alt=""><span class="name-advantage">High quality products</span></p>
                     <hr>
                     <p class="discription-advantage">Our products are of the highest quality metal</p>
                 </div>
-                <div class="card-why-box slider__item fade">
+                <div class="card-why-box slide">
                     <p class="advantage"><img  class="icon-advantage" src="img/box.svg" alt=""><span class="name-advantage">Individual approach</span></p>
                     <hr>
                     <p class="discription-advantage">We offer an individual approach to each client. Therefore, we have more than 10,000 successful transactions!</p>
                 </div>
             </div>
+        </div>
             <br>
-            <!--<a class="prev" onclick="plusSlides(-1)">&#10094</a>-->
-            <div  style="text-align:center">
-                <span class="dot" onclick="currentSlide(1)"></span>
-                <span class="dot" onclick="currentSlide(2)"></span>
-                <span class="dot" onclick="currentSlide(3)"></span>
+            <div class="button-for-mobile">
+                <button id="prev" onclick="prevSlide()" style="color: black; font-size: 20px;"><</button>
+                <div  style="text-align:center">
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                </div>
+                <button id="next" onclick="nextSlide()" style="color: black; font-size: 20px;">></button>
+                <script src="js/slider.js"></script>
             </div>
             <div class="traid-product">
                 <h2 class="head-name">Trading products</h2>

@@ -4,7 +4,7 @@ a {
     color: white;
 }
 ul,
-ol,
+ol,ёё
 li {
     margin: 0;
     padding: 0;
@@ -148,14 +148,11 @@ h1,h2,h3,h4,h5,h6{
     font-weight: 600;
 }
 @media only screen and (max-width: 769px){
-    .preview-text-area{
-    }
     .big-header-but-not{
         font-size: 25px;
     }
     .preview-undercaption{
         font-size: 15px;
-        
     }
 }
 .our-team{
